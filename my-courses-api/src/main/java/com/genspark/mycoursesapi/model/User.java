@@ -1,4 +1,4 @@
-package model;
+package com.genspark.mycoursesapi.model;
 
 import lombok.Data;
 
