@@ -1,5 +1,7 @@
 package model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -7,6 +9,7 @@ import java.time.LocalDateTime;
  * @author elvisespinoza
  */
 
+@Data // Lombok @Data handles getters / setters / equals / hashCode methods automatically
 @Entity
 @Table(name = "users")
 public class User {
@@ -14,17 +17,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username", nullable = false, length = 100)
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "username", nullable = false, length = 250)
     private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "name", nullable = false)
-    private String name;
-
     @Column(name = "create time", nullable = false)
     private LocalDateTime createTime; // logging purposes
 
-    // roles
+    @Enumerated(EnumType.STRING) // store via String value ( readable :: ordinal '#' is default )
+    @Column(name = "role", nullable = false)
+    private Role role; // roles
+
 }
