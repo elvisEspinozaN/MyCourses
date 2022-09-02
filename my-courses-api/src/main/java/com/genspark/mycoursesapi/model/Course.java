@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 /**
  * @author elvisespinoza
@@ -25,6 +26,9 @@ public class Course {
 
     @Column(name = "description", nullable = false)
     private String description;
+
+    @Column(name = "quantity", nullable = false)
+    private Double quantity;
 
     @Column(name = "length", nullable = false)
     private Double length;
