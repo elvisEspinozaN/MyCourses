@@ -18,7 +18,7 @@ public class Added {
     private Long id;
 
     @Column(name = "user_id", nullable = false)
-    private Long useerId;
+    private Long userId;
 
     @ManyToOne(fetch = FetchType.LAZY) // don't specify user, doesn't fetch user table
     @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false) // use this relation to create foreign key
